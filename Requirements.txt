@@ -1,0 +1,10 @@
+ Jupyter Notebook / JupyterLab
+ Python packages:
+    -Plotly
+    -Seaborn
+    -Numpy
+    -Six
+    -Pandas
+    -Sklearn
+    -Catboost
+
