@@ -1,10 +1,10 @@
- Jupyter Notebook / JupyterLab
- Python packages:
-    -Plotly
-    -Seaborn
-    -Numpy
-    -Six
-    -Pandas
-    -Sklearn
-    -Catboost
+Cardiovascular Dataset extracted from: https://www.kaggle.com/sulianova/cardiovascular-disease-dataset
 
+Reccomended Environment: Google Colab/Jupyter Notebook/JupyterLab
+
+Python packages used:
+    -pandas
+    -numpy
+    -plotly
+    -seaborn
+    -matplotlib
