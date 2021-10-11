@@ -33,10 +33,25 @@ Debido a la alta correlación de above_55 con 'age' se removió la edad en el se
 [Catboost](https://catboost.ai/) es un algoritmo que usa gradient boosting en árboles de decisión. Para este proyecto se aplicó un clasificador de la librería (CatboostClassifier) con la finalidad de predecir la variable dependiente del dataset (cardio). Para ello se realizaron los siguientes pasos:
    1. Definición de las variables categoricas: Catboost permite aplicar un proceso de conversión para las variables categoricas conocido como Ordered Target Statistics. Para realizar este proceso primero se deben especificar los nombres de columnas a usar, en este caso: 'gender', 'cholesterol', 'gluc'. 
    2. Para la selección de hiperparámetros se tienen ejecutaron iteraciones del modelo dejando que este usara los hiperparámetros por default y después se realizó un grid search para la búsqueda del mejor resultado, probando el accuracy para los parámetros de profundidad, regularización l2, learning rate y el número de iteraciones. 
-   3. 
+
 
 ## Paso 4: XGBoost
+[XGBoost](https://xgboost.readthedocs.io/en/latest/) XGBoost es una biblioteca optimizada de aumento de gradiente distribuida diseñada para ser altamente eficiente, flexible y portátil. Implementa algoritmos de aprendizaje automático bajo el marco Gradient Boosting. XGBoost proporciona un refuerzo de árbol paralelo (también conocido como GBDT, GBM) que resuelve muchos problemas de ciencia de datos de una manera rápida y precisa. Para este proyecto se utilizó la librería XGBClassifier(). Con ello se realizaron los siguientes pasos:
+  1. Definición de las variables categóricas así como la variable objetivo, así como en el apartado de Catboost se realizó one-hot-encoding a las variable 'gender' en base a las variables 'cholesterol' y 'gluc'.
+  2. Para la selección de los parámetros del modelo de max_depth y eta se realizaron experiementaciones teniendo un **max_depth** de 6, sin embargo si el valor es muy alto se puede generar un árbol muy complejo que te llevará al overfitting y un consumo muy grande de memoria. Al usar un valor menor el **accuracy desminuía** 
+Para el **learning rate** si el eta es más grande hace que el cálculo sea más rápido (porque necesita introducir menos rondas) pero no hace que se alcance el mejor óptimo. Por otro lado, al disminuir el valor de eta hace que el cálculo sea más lento (porque hay que introducir más rondas) pero facilita alcanzar el mejor óptimo. tras experimentaciones con valores como 0.1, 0.001, 0.02, 0.3, 0.03  se percató que el que mejor accuracy nos daba era el 0.03. Se utilizó como objetivo "multi softmax" debido a que es utilizada para problemas de clasificación.
+
+```json
+parameters = {
+    'max_depth':6,
+    'eta':0.03,
+    'objective':'multi:softmax',
+    'num_class':2, ## numero de clases
+}
+
+epochs = 15 ## número de iteraciones
+```
 
 ## Paso 5: Resultados
-
+Por parte de XGBoost se puede concluir que los resultados obtenidos en base a los parametros descritos en el apartado de XGBoost, se tuvo un accuracy de 73.01%, a pesar de que realizó un one-hot-encoding para mejorar este dato
 
