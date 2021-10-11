@@ -3,11 +3,11 @@ Cardiovascular Dataset extracted from: https://www.kaggle.com/sulianova/cardiova
 Reccomended Environment: Google Colab/Jupyter Notebook/JupyterLab
 
 Python packages used:
-    -pandas
-    -numpy
-    -plotly
-    -seaborn
-    -matplotlib
-    -catboost
-    -xgboost
-    -sklearn
+    -NumPy
+    -Pandas
+    -Matplotlib
+    -Plotly
+    -Seaborn
+    -Scikit-learn
+    -CatBoost
+    -XGBoost
