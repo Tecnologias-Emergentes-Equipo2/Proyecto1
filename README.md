@@ -53,5 +53,7 @@ epochs = 15 ## número de iteraciones
 ```
 
 ## Paso 5: Resultados
-Por parte de XGBoost se puede concluir que los resultados obtenidos en base a los parametros descritos en el apartado de XGBoost, se tuvo un accuracy de 73.01%, a pesar de que realizó un one-hot-encoding para mejorar este dato
+En cuanto al modelo de CatBoost se refiere, los resultados de accuracy obtenidos alcanzaron un ±74%. A pesar del uso de GPU y otras técnicas como early stopping y grid search, esta métrica no mejoró mucho.
+
+Por parte de XGBoost los resultados obtenidos en base a los parametros descritos en el apartado 4, se tuvo un accuracy de 73.01%, a pesar de que realizó un one-hot-encoding para mejorar el accuracy del modelo.
 
